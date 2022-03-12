@@ -44,9 +44,7 @@ def remove_spacing_augmenter(
     level: float,
 ) -> Iterator[Example]:
     def __replace(s):
-        if random.random() < level and (s is True):
-            return False
-        return s
+        return False if random.random() < level and (s is True) else s
 
     example_dict = example.to_dict()
     example_dict["token_annotation"]["SPACY"] = [

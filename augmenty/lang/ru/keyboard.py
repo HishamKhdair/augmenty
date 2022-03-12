@@ -3,7 +3,7 @@ from ...util import registry
 
 @registry.keyboards("ru.v1")
 def create_ru():
-    qwerty = {
+    return {
         "default": [
             ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="],
             ["й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ"],
@@ -17,4 +17,3 @@ def create_ru():
             ["[", "Я", "Ч", "С", "М", "И", "Т", "Ь", "Б", "Ю", "?"],
         ],
     }
-    return qwerty

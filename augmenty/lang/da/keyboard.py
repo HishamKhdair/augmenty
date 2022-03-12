@@ -3,7 +3,7 @@ from ...util import registry
 
 @registry.keyboards("da_qwerty.v1")
 def create_qwerty_da():
-    qwerty_da = {
+    return {
         "default": [
             ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "´"],
             ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "å", "¨"],
@@ -17,4 +17,3 @@ def create_qwerty_da():
             [">", "Z", "X", "C", "V", "B", "N", "M", ";", ":", "_"],
         ],
     }
-    return qwerty_da

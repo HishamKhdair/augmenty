@@ -41,7 +41,7 @@ def create_token__dict_replace_augmenter(
         >>> replace = {"act": {"VERB": ["perform", "move"], "NOUN": ["action", "deed"]}}
         >>> create_token_dict_replace_augmenter(replace=replace, level=.10)
     """
-    if ignore_casing is True:
+    if ignore_casing:
         for k in replace:
             replace[k.lower()] = replace[k]
 
@@ -260,7 +260,7 @@ def create_word_embedding_augmenter(
             )
         if t.text in embedding:
             rep = embedding.most_similar(t.text, n=n + 2)
-            if ignore_casing is True:
+            if ignore_casing:
                 rep = [w for w in rep if w.lower() != t.text.lower()][:n]
             else:
                 rep = [w for w in rep if w != t.text][:n]

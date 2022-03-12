@@ -3,7 +3,7 @@ from ...util import registry
 
 @registry.keyboards("fr_azerty.v1")
 def create_qwerty_fr():
-    qwerty = {
+    return {
         "default": [
             ["&", "é", '"', "'", "(", "§", "è", "!", "ç", "à", ")", "-"],
             ["a", "z", "e", "r", "t", "y", "u", "i", "o", "p", "^", "$"],
@@ -17,4 +17,3 @@ def create_qwerty_fr():
             [">", "W", "X", "C", "V", "B", "N", "?", ".", "/", "+"],
         ],
     }
-    return qwerty

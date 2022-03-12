@@ -80,7 +80,7 @@ def char_replace_augmenter(
 ) -> Iterator[Example]:
     def __replace(t):
         t_ = []
-        for i, c in enumerate(t.text):
+        for c in t.text:
             if random.random() < level and c in replace:
                 c = random.choice(replace[c])
             t_.append(c)

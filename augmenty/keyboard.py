@@ -50,10 +50,7 @@ class Keyboard(BaseModel):
         Returns:
             bool: a boolean indicating whether key is shifted.
         """
-        for x in self.keyboard_array["shift"]:
-            if key in x:
-                return True
-        return False
+        return any(key in x for x in self.keyboard_array["shift"])
 
     def euclidian_distance(self, key_a: str, key_b: str) -> int:
         """Returns euclidian distance between two keys
@@ -84,8 +81,7 @@ class Keyboard(BaseModel):
         """
         for arr in self.keyboard_array:
             for x, _ in enumerate(self.keyboard_array[arr]):
-                for k in self.keyboard_array[arr][x]:
-                    yield k
+                yield from self.keyboard_array[arr][x]
 
     def get_neighbours(self, key: str, distance: int = 1) -> Set[int]:
         """gets the neighbours of a key with a specified distance.

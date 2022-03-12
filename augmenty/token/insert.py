@@ -236,7 +236,7 @@ def create_random_synonym_insertion_augmenter(
 
     def __insert(t: Token, lang: str, respect_pos: bool, verbose: bool) -> dict:
         doc = t.doc
-        if respect_pos is True and doc.has_annotation("POS") is False:
+        if respect_pos and doc.has_annotation("POS") is False:
             if verbose:
                 msg.warn(
                     "respect_pos is True, but the doc is not annotated for part of speech. Setting respect_pos to False."
@@ -260,7 +260,7 @@ def create_random_synonym_insertion_augmenter(
             )
         for t in span:
             word = t.lower_
-            if respect_pos is True:
+            if respect_pos:
                 pos = pos_getter(t)
                 if pos in upos_wn_dict:
                     syns = wordnet.synsets(word, pos=upos_wn_dict[pos], lang=lang)

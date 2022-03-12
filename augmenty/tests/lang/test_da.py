@@ -11,8 +11,7 @@ import pytest
 
 @pytest.fixture()
 def nlp():
-    nlp = Danish()
-    return nlp
+    return Danish()
 
 
 def test_create_da_æøå_replace_augmenter(nlp):
