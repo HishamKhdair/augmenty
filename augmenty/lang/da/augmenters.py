@@ -54,9 +54,7 @@ def create_da_historical_noun_casing_augmenter(
     """
 
     def conditional(token):
-        if token.pos_ == "NOUN":
-            return True
-        return False
+        return token.pos_ == "NOUN"
 
     return create_conditional_token_casing_augmenter(
         conditional=conditional, upper=True, level=level

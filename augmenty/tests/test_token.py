@@ -12,8 +12,7 @@ from augmenty.token.insert import create_token_insert_random_augmenter
 
 @pytest.fixture()
 def nlp():
-    nlp = spacy.load("en_core_web_sm")
-    return nlp
+    return spacy.load("en_core_web_sm")
 
 
 def test_create_starting_case_augmenter(nlp):
@@ -35,9 +34,7 @@ def test_create_conditional_token_casing_augmenter(nlp):
     doc = Doc(nlp.vocab, words=tokens, pos=pos, spaces=spaces)
 
     def conditional(token):
-        if token.pos_ == "PRON":
-            return True
-        return False
+        return token.pos_ == "PRON"
 
     aug = spacy.registry.augmenters.get("conditional_token_casing.v1")(
         level=1, lower=True, conditional=conditional

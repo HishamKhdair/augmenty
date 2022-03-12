@@ -31,9 +31,7 @@ dane_test = dane(splits=["test"])(nlp_da)
 
 
 def is_pronoun(token):
-    if token.pos_ == "PRON":
-        return True
-    return False
+    return token.pos_ == "PRON"
 
 
 abbreviate = lambda token: token.text[0] + "."

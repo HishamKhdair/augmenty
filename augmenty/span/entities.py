@@ -114,13 +114,12 @@ def ent_augmenter(
 
             # Handle entities IOB tags
             if len_ent == 1:
-                ents[i] = ["U-" + ent.label_]
+                ents[i] = [f"U-{ent.label_}"]
             else:
                 ents[i] = (
-                    ["B-" + ent.label_]
-                    + ["I-" + ent.label_] * (len_ent - 2)
-                    + ["L-" + ent.label_]
-                )
+                    [f"B-{ent.label_}"] + [f"I-{ent.label_}"] * (len_ent - 2)
+                ) + [f"L-{ent.label_}"]
+
 
     if example.y.has_annotation("HEAD") and resolve_dependencies:
         tok_anno["HEAD"] = head.tolist()
@@ -260,11 +259,10 @@ def ent_format_augmenter(
 
             # reorder tokens
             new_ent = []
-            ent_ = [e for e in ent]
+            ent_ = list(ent)
             for i in reordering:
-                if i is not None and i >= len(ent):
-                    continue
-                new_ent += ent_ if i is None else [ent_.pop(i)]
+                if i is None or i < len(ent):
+                    new_ent += ent_ if i is None else [ent_.pop(i)]
 
             # format tokens
             new_ent_ = [

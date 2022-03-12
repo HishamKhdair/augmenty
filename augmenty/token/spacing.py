@@ -34,9 +34,7 @@ def grundtvigian_spacing_augmenter(
     level: float,
 ) -> Iterator[Example]:
     def __spacing(t):
-        if random.random() < level:
-            return " ".join([c for c in t.text])
-        return t.text
+        return " ".join(list(t.text)) if random.random() < level else t.text
 
     example_dict = example.to_dict()
     example_dict["token_annotation"]["ORTH"] = [__spacing(t) for t in example.y]

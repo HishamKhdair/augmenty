@@ -10,8 +10,7 @@ import pytest
 
 @pytest.fixture()
 def nlp():
-    nlp = English()
-    return nlp
+    return English()
 
 
 def test_create_random_casing_augmenter(nlp):

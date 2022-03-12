@@ -7,8 +7,7 @@ import pytest
 
 @pytest.fixture()
 def nlp():
-    nlp = English()
-    return nlp
+    return English()
 
 
 def test_create_spongebob_augmenter(nlp):

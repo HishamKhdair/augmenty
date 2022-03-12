@@ -7,8 +7,7 @@ import pytest
 
 @pytest.fixture()
 def nlp():
-    nlp = spacy.load("en_core_web_md")
-    return nlp
+    return spacy.load("en_core_web_md")
 
 
 def test_static_embedding_util(nlp):

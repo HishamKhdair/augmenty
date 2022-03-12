@@ -9,8 +9,7 @@ import pytest
 
 @pytest.fixture()
 def nlp():
-    nlp = spacy.load("en_core_web_sm")
-    return nlp
+    return spacy.load("en_core_web_sm")
 
 
 def test_create_ent_replace(nlp):
@@ -108,7 +107,7 @@ def test_create_per_replace(nlp):
 
 
 def test_create_ent_format_augmenter(nlp):
-    abbreviate = lambda token: token.text[0] + "."
+    abbreviate = lambda token: f'{token.text[0]}.'
 
     augmenter = augmenty.load(
         "ents_format.v1",
